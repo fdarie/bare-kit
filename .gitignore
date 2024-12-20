@@ -5,3 +5,12 @@ build/
 local.properties
 *.bundle.h
 *.d
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# Node.js
+node_modules/

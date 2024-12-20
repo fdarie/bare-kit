@@ -12,6 +12,11 @@ include(overrides.cmake)
 
 install_node_modules()
 
+# Define build options for platform-specific subdirectories
+option(ANDROID "Build for Android" OFF)
+option(DOTNET "Build for .NET" OFF)
+option(APPLE "Build for Apple" OFF)
+
 if(APPLE)
   enable_language(OBJC)
 endif()
@@ -20,12 +25,17 @@ fetch_package("github:holepunchto/bare@1.13.1")
 
 add_subdirectory(shared)
 
+
 if(APPLE)
   add_subdirectory(apple)
 endif()
 
 if(ANDROID)
   add_subdirectory(android)
+endif()
+
+if(DOTNET)
+  add_subdirectory(dotnet)
 endif()
 
 if(PROJECT_IS_TOP_LEVEL)

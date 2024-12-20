@@ -1,0 +1,12 @@
+/Users/fdarie/projects/pear-learning/bare-kit/dotnet/src/BareKit/bin/Debug/net7.0/osx-x64/BareKit.deps.json
+/Users/fdarie/projects/pear-learning/bare-kit/dotnet/src/BareKit/bin/Debug/net7.0/osx-x64/BareKit.dll
+/Users/fdarie/projects/pear-learning/bare-kit/dotnet/src/BareKit/bin/Debug/net7.0/osx-x64/BareKit.pdb
+/Users/fdarie/projects/pear-learning/bare-kit/dotnet/src/BareKit/obj/Debug/net7.0/osx-x64/BareKit.csproj.AssemblyReference.cache
+/Users/fdarie/projects/pear-learning/bare-kit/dotnet/src/BareKit/obj/Debug/net7.0/osx-x64/BareKit.GeneratedMSBuildEditorConfig.editorconfig
+/Users/fdarie/projects/pear-learning/bare-kit/dotnet/src/BareKit/obj/Debug/net7.0/osx-x64/BareKit.AssemblyInfoInputs.cache
+/Users/fdarie/projects/pear-learning/bare-kit/dotnet/src/BareKit/obj/Debug/net7.0/osx-x64/BareKit.AssemblyInfo.cs
+/Users/fdarie/projects/pear-learning/bare-kit/dotnet/src/BareKit/obj/Debug/net7.0/osx-x64/BareKit.csproj.CoreCompileInputs.cache
+/Users/fdarie/projects/pear-learning/bare-kit/dotnet/src/BareKit/obj/Debug/net7.0/osx-x64/BareKit.dll
+/Users/fdarie/projects/pear-learning/bare-kit/dotnet/src/BareKit/obj/Debug/net7.0/osx-x64/refint/BareKit.dll
+/Users/fdarie/projects/pear-learning/bare-kit/dotnet/src/BareKit/obj/Debug/net7.0/osx-x64/BareKit.pdb
+/Users/fdarie/projects/pear-learning/bare-kit/dotnet/src/BareKit/obj/Debug/net7.0/osx-x64/ref/BareKit.dll

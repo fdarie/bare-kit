@@ -1,0 +1,15 @@
+{
+  "FSharp.suggestGitignore": false,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 4,
+  "files.exclude": {
+    "**/bin": true,
+    "**/obj": true,
+    "**/build": true,
+  },
+  "extensions.ignoreRecommendations": false,
+  "files.associations": {
+    ".fantomasignore": "ignore",
+    "ipc.h": "c"
+  }
+}

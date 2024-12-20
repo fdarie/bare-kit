@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build BareKit",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "-r",
+                "osx-x64",
+                "${workspaceFolder}/dotnet/src/BareKit/BareKit.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        }
+    ]
+}
