@@ -6,10 +6,13 @@
     "**/bin": true,
     "**/obj": true,
     "**/build": true,
+    "**/.gradle": true,
+    "**/node_modules": true,
   },
   "extensions.ignoreRecommendations": false,
   "files.associations": {
     ".fantomasignore": "ignore",
-    "ipc.h": "c"
+    "ipc.h": "c",
+    "worklet.h": "c"
   }
 }
