@@ -19,7 +19,7 @@ endif()
 
 # Define build options for platform-specific subdirectories
 option(ANDROID "Build for Android" OFF)
-  option(DOTNET "Build for .NET" OFF)
+option(DOTNET "Build for .NET" OFF)
 option(APPLE "Build for Apple" OFF)
 
 if(APPLE)

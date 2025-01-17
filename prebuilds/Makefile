@@ -11,12 +11,18 @@
 	rm -rf $@
 	xcodebuild -create-xcframework -output $@ $(addprefix -framework , $^)
 
+%.%bare-kit-dotnet.%:
+	rm -rf $@
+	mkdir -p $(dir $@)
+	cp -a $< $@
+
 %: %-release.aar
 	rm -rf $@
 	mkdir -p $@
 	unzip -q $< -d $@
 
-all: ios/BareKit.xcframework android/bare-kit
+
+all: ios/BareKit.xcframework android/bare-kit dotnet/runtime
 
 ios/BareKit.xcframework:  ios/BareKit.framework ios-simulator/BareKit.framework
 
