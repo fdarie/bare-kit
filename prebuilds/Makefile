@@ -22,7 +22,7 @@
 	unzip -q $< -d $@
 
 
-all: ios/BareKit.xcframework android/bare-kit dotnet/runtime
+all: ios/BareKit.xcframework android/bare-kit dotnet
 
 ios/BareKit.xcframework:  ios/BareKit.framework ios-simulator/BareKit.framework
 
