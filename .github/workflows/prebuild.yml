@@ -71,7 +71,7 @@ jobs:
           node-version: 20
       - run: npm install -g bare-make
       - run: npm install
-      - run: bare-make generate --platform ${{ matrix.platform }} --arch ${{ matrix.arch }}
+      - run: bare-make generate
       - run: bare-make build
 
   android:
