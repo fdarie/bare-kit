@@ -31,19 +31,4 @@ ios/BareKit.framework: ios-arm64/BareKit.framework
 ios-simulator/BareKit.framework: ios-arm64-simulator/BareKit.framework ios-x64-simulator/BareKit.framework
 
 # .NET unpacking
-dotnet: dotnet/runtime-darwin-x64 dotnet/runtime-windows-x64 dotnet/runtime-linux-x64
-
-dotnet/runtime-darwin-x64: dotnet-darwin-x64.zip
-	rm -rf $@
-	mkdir -p $@
-	unzip -q $< -d $@
-
-dotnet/runtime-windows-x64: dotnet-windows-x64.zip
-	rm -rf $@
-	mkdir -p $@
-	unzip -q $< -d $@
-
-dotnet/runtime-linux-x64: dotnet-linux-x64.zip
-	rm -rf $@
-	mkdir -p $@
-	unzip -q $< -d $@
+dotnet: dotnet/bare-kit-dotnet.dll
