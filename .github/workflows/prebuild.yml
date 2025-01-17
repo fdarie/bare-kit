@@ -52,9 +52,6 @@ jobs:
           - os: macos-14
             platform: darwin
             arch: x64
-          - os: macos-14
-            platform: darwin
-            arch: arm64
           - os: windows-latest
             platform: windows
             arch: x64
@@ -71,8 +68,10 @@ jobs:
           node-version: 20
       - run: npm install -g bare-make
       - run: npm install
-      - run: bare-make generate
-      - run: bare-make build
+      - run: mkdir build
+      - run: cd build
+      - run: cmake -DAPPLE=OFF -DANDROID=OFF -DDOTNET=ON ..
+      - run: make
 
   android:
     strategy:
