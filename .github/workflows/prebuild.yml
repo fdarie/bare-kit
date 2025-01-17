@@ -54,6 +54,7 @@ jobs:
             arch: x64
           - os: ubuntu-22.04
             platform: linux
+            arch: x64
     runs-on: ${{ matrix.os }}
     name: ${{ matrix.platform }}-${{ matrix.arch }}
     steps:
