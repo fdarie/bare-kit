@@ -68,12 +68,20 @@ jobs:
           node-version: 20
       - run: npm install -g bare-make
       - run: npm install
-      - run: |
-          rm -rf build
-          mkdir build
+      run: |
+          # Create build directory (won’t fail if it already exists)
+          mkdir -p build
+
+          # Go into the build directory
           cd build
+
+          # Configure cmake. Adjust flags as needed.
           cmake -DAPPLE=OFF -DANDROID=OFF -DDOTNET=ON ..
+
+          # Build using make (works on Linux/macOS, and with bash on Windows)
           make
+        # Force bash shell on all OSes (including Windows)
+        shell: bash
 
   android:
     strategy:
