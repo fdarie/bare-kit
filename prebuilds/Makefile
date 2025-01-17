@@ -37,16 +37,46 @@ dotnet: dotnet/runtime/windows-x64 dotnet/runtime/darwin-x64 dotnet/runtime/linu
 dotnet/runtime/windows-x64: dotnet-windows-x64.zip
 	rm -rf $@
 	mkdir -p $@
+	@echo "Contents of $<:"
+	@if [ -f $< ] && file $< | grep -q 'Zip'; then \
+	    unzip -l $<; \
+	    unzip -q $< -d $@; \
+	elif [ -d $< ]; then \
+	    ls -l $<; \
+	    cp -a $</* $@; \
+	else \
+	    echo "$< not found!"; \
+	fi
 	unzip -q $< -d $@
 
 dotnet/runtime/darwin-x64: dotnet-darwin-x64.zip
 	rm -rf $@
 	mkdir -p $@
+	@echo "Contents of $<:"
+	@if [ -f $< ] && file $< | grep -q 'Zip'; then \
+	    unzip -l $<; \
+	    unzip -q $< -d $@; \
+	elif [ -d $< ]; then \
+	    ls -l $<; \
+	    cp -a $</* $@; \
+	else \
+	    echo "$< not found!"; \
+	fi
 	unzip -q $< -d $@
 
 dotnet/runtime/linux-x64: dotnet-linux-x64.zip
 	rm -rf $@
 	mkdir -p $@
+	@echo "Contents of $<:"
+	@if [ -f $< ] && file $< | grep -q 'Zip'; then \
+	    unzip -l $<; \
+	    unzip -q $< -d $@; \
+	elif [ -d $< ]; then \
+	    ls -l $<; \
+	    cp -a $</* $@; \
+	else \
+	    echo "$< not found!"; \
+	fi
 	unzip -q $< -d $@
 
 # Clean target
