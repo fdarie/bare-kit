@@ -71,12 +71,12 @@ jobs:
           node-version: 20
       - run: npm install -g bare-make
       - run: npm install
-      - run: bare-make generate -D DOTNET=1
+      - run: bare-make generate -D DOTNET=ON
       - run: bare-make build
       - uses: actions/upload-artifact@v4
         with:
           name: dotnet-${{ matrix.platform }}-${{ matrix.arch }}
-          path: build/dotnet/bare-kit-dotnet.*
+          path: build/dotnet/*bare-kit-dotnet.*
 
   android:
     strategy:
