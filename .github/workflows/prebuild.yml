@@ -49,8 +49,11 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: ubuntu-22.04
-            platform: linux
+          - os: macos-14
+            platform: darwin
+            arch: x64
+          - os: windows-latest
+            platform: windows
             arch: x64
     runs-on: ${{ matrix.os }}
     name: ${{ matrix.platform }}-${{ matrix.arch }}
@@ -72,7 +75,7 @@ jobs:
           cd build
 
           # Configure cmake. Adjust flags as needed.
-          cmake -DCMAKE_C_FLAGS="-m64" -DCMAKE_CXX_FLAGS="-m64" -DAPPLE=OFF -DANDROID=OFF -DDOTNET=ON ..
+          cmake -DAPPLE=OFF -DANDROID=OFF -DDOTNET=ON ..
 
           # Build using make (works on Linux/macOS, and with bash on Windows)
           make
