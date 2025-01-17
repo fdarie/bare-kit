@@ -68,10 +68,11 @@ jobs:
           node-version: 20
       - run: npm install -g bare-make
       - run: npm install
-      - run: mkdir build
-      - run: cd build
-      - run: cmake -DAPPLE=OFF -DANDROID=OFF -DDOTNET=ON ..
-      - run: make
+      - run: |
+          mkdir build
+          cd build
+          cmake -DAPPLE=OFF -DANDROID=OFF -DDOTNET=ON ..
+          make
 
   android:
     strategy:
