@@ -49,9 +49,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: macos-14
-            platform: darwin
-            arch: x64
           - os: ubuntu-22.04
             platform: linux
             arch: x64
