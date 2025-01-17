@@ -6,7 +6,7 @@ add_bare_bundle(
   WORKING_DIRECTORY ..
 )
 
-add_library(bare_worklet OBJECT)
+add_library(bare_worklet STATIC)
 
 set_target_properties(
   bare_worklet

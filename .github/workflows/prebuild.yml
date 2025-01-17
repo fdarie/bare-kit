@@ -56,7 +56,7 @@ jobs:
             platform: windows
             arch: x64
     runs-on: ${{ matrix.os }}
-    name: ${{ matrix.platform }}-${{ matrix.arch }}
+    name: dotnet-${{ matrix.platform }}-${{ matrix.arch }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/cache@v4
@@ -66,21 +66,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - run: npm install -g bare-make
       - run: npm install
-      - run: |
-          # Create build directory (won’t fail if it already exists)
-          mkdir -p build
-
-          # Go into the build directory
-          cd build
-
-          # Configure cmake. Adjust flags as needed.
-          cmake -DAPPLE=OFF -DANDROID=OFF -DDOTNET=ON ..
-
-          # Build using make (works on Linux/macOS, and with bash on Windows)
-          make
-        # Force bash shell on all OSes (including Windows)
-        shell: bash
+      - run: bare-make generate --platform ${{ matrix.platform }} --arch ${{ matrix.arch }}
 
   android:
     strategy:

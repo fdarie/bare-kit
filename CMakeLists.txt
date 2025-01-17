@@ -12,6 +12,11 @@ include(overrides.cmake)
 
 install_node_modules()
 
+if(WIN32)
+    # For static runtime linking (/MT)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded")
+endif()
+
 # Define build options for platform-specific subdirectories
 option(ANDROID "Build for Android" OFF)
 option(DOTNET "Build for .NET" OFF)
@@ -34,9 +39,9 @@ if(ANDROID)
   add_subdirectory(android)
 endif()
 
-if(DOTNET)
+#if(DOTNET)
   add_subdirectory(dotnet)
-endif()
+#endif()
 
 if(PROJECT_IS_TOP_LEVEL)
   enable_testing()
