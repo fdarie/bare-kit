@@ -55,6 +55,9 @@ jobs:
           - os: windows-latest
             platform: windows
             arch: x64
+          - os: ubuntu-22.04
+            platform: linux
+            arch: x64
     runs-on: ${{ matrix.os }}
     name: dotnet-${{ matrix.platform }}-${{ matrix.arch }}
     steps:
@@ -70,7 +73,11 @@ jobs:
       - run: npm install
       - run: bare-make generate
       - run: bare-make build
-      
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dotnet-${{ matrix.platform }}-${{ matrix.arch }}
+          path: build/dotnet/bare-kit-dotnet.*
+
   android:
     strategy:
       matrix:
@@ -104,6 +111,7 @@ jobs:
     needs:
       - apple
       - android
+      - dotnet
     steps:
       - uses: actions/checkout@v4
         with:
@@ -120,4 +128,5 @@ jobs:
           path: |
             prebuilds/ios/BareKit.xcframework
             prebuilds/android/bare-kit
+            prebuilds/dotnet/bare-kit-dotnet
           retention-days: 5

@@ -39,9 +39,9 @@ if(ANDROID)
   add_subdirectory(android)
 endif()
 
-#if(DOTNET)
+if(DOTNET)
   add_subdirectory(dotnet)
-#endif()
+endif()
 
 if(PROJECT_IS_TOP_LEVEL)
   enable_testing()
