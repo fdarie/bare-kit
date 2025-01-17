@@ -1,3 +1,6 @@
+cmake_minimum_required(VERSION 3.31)
+
+# 1) Generate the bundle, if needed
 add_bare_bundle(
   bare_worklet_bundle
   ENTRY shared/worklet.js
@@ -6,17 +9,18 @@ add_bare_bundle(
   WORKING_DIRECTORY ..
 )
 
-add_library(bare_worklet OBJECT)
+# 2) Create the OBJECT library
+add_library(bare_worklet_objs OBJECT)
 
 set_target_properties(
-  bare_worklet
+  bare_worklet_objs
   PROPERTIES
-  C_STANDARD 99
-  POSITION_INDEPENDENT_CODE ON
+    C_STANDARD 99
+    POSITION_INDEPENDENT_CODE ON
 )
 
 target_sources(
-  bare_worklet
+  bare_worklet_objs
   PRIVATE
     ipc.h
     ipc.c
@@ -26,11 +30,21 @@ target_sources(
 )
 
 target_link_libraries(
-  bare_worklet
+  bare_worklet_objs
   PUBLIC
-    $<LINK_LIBRARY:WHOLE_ARCHIVE,bare_static>
+    $<LINK_LIBRARY:WHOLE_ARCHIVE,bare_static>  # Adjust as needed
   PUBLIC
     log_static
 )
 
-link_bare_modules(bare_worklet WORKING_DIRECTORY ..)
+# If link_bare_modules introduces any .def files, it might cause trouble in an OBJECT library.
+# Make sure it doesn't embed .def files directly into this OBJECT library.
+link_bare_modules(bare_worklet_objs WORKING_DIRECTORY ..)
+
+# 3) Wrap the OBJECT library into a final STATIC library (same on all platforms)
+add_library(bare_worklet STATIC
+  $<TARGET_OBJECTS:bare_worklet_objs>
+)
+
+# Optionally set any properties or link additional libraries here
+# set_target_properties(bare_worklet PROPERTIES OUTPUT_NAME "bare_worklet_static")
