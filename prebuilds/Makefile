@@ -34,50 +34,10 @@ android/bare-kit: android/bare-kit-release.aar
 # .NET runtime generation
 dotnet: dotnet/runtime/windows-x64 dotnet/runtime/darwin-x64 dotnet/runtime/linux-x64
 
-dotnet/runtime/windows-x64: dotnet-windows-x64.zip
+dotnet/runtime/windows-x64: bare-kit-dotnet.lib
 	rm -rf $@
 	mkdir -p $@
-	@echo "Contents of $<:"
-	@if [ -f $< ] && file $< | grep -q 'Zip'; then \
-	    unzip -l $<; \
-	    unzip -q $< -d $@; \
-	elif [ -d $< ]; then \
-	    ls -l $<; \
-	    cp -a $</* $@; \
-	else \
-	    echo "$< not found!"; \
-	fi
-	unzip -q $< -d $@
-
-dotnet/runtime/darwin-x64: dotnet-darwin-x64.zip
-	rm -rf $@
-	mkdir -p $@
-	@echo "Contents of $<:"
-	@if [ -f $< ] && file $< | grep -q 'Zip'; then \
-	    unzip -l $<; \
-	    unzip -q $< -d $@; \
-	elif [ -d $< ]; then \
-	    ls -l $<; \
-	    cp -a $</* $@; \
-	else \
-	    echo "$< not found!"; \
-	fi
-	unzip -q $< -d $@
-
-dotnet/runtime/linux-x64: dotnet-linux-x64.zip
-	rm -rf $@
-	mkdir -p $@
-	@echo "Contents of $<:"
-	@if [ -f $< ] && file $< | grep -q 'Zip'; then \
-	    unzip -l $<; \
-	    unzip -q $< -d $@; \
-	elif [ -d $< ]; then \
-	    ls -l $<; \
-	    cp -a $</* $@; \
-	else \
-	    echo "$< not found!"; \
-	fi
-	unzip -q $< -d $@
+	ls -all
 
 # Clean target
 clean:
