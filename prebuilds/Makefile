@@ -11,18 +11,11 @@
 	rm -rf $@
 	xcodebuild -create-xcframework -output $@ $(addprefix -framework , $^)
 
-%dotnet%:
+dotnet%:
 	rm -rf $@
 	mkdir -p $@
-	cp -a dotnet-source/* $@
+	cp -a dotnet-* $@
 	@echo "Copied .NET files to $@:"
-	ls -all $@
-
-%bare-kit%:
-	rm -rf $@
-	mkdir -p $@
-	cp -a bare-kit-source/* $@
-	@echo "Copied bare-kit files to $@:"
 	ls -all $@
 
 %: %-release.aar
