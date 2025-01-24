@@ -16,13 +16,6 @@
 	mkdir -p $@
 	unzip -q $< -d $@
 
-dotnet%:
-	rm -rf $@
-	mkdir -p $@
-	cp -a $</* $@
-	@echo "Copied .NET files to $@:"
-	ls -all $@
-
 # Default target
 all: ios/BareKit.xcframework android/bare-kit dotnet
 
@@ -61,7 +54,6 @@ dotnet/runtime/linux-x64: dotnet-linux-x64
 	cp -a $</* $@
 	@echo "Copied .NET Linux files to $@:"
 	ls -all $@
-	
 
 # Clean target
 clean:
