@@ -19,7 +19,7 @@
 dotnet%:
 	rm -rf $@
 	mkdir -p $@
-	cp -a dotnet-* $@
+	cp -a $</* $@
 	@echo "Copied .NET files to $@:"
 	ls -all $@
 
