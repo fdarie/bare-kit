@@ -121,8 +121,7 @@ jobs:
         with:
           path: prebuilds
       - run: |
-          ls -all
-          make
+          make -d
         working-directory: prebuilds
       - uses: actions/upload-artifact@v4
         with:
@@ -130,5 +129,5 @@ jobs:
           path: |
             prebuilds/ios/BareKit.xcframework
             prebuilds/android/bare-kit
-            prebuilds/dotnet*
+            prebuilds/dotnet/*bare-kit-dotnet*
           retention-days: 5
