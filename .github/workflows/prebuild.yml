@@ -129,5 +129,5 @@ jobs:
           path: |
             prebuilds/ios/BareKit.xcframework
             prebuilds/android/bare-kit
-            prebuilds/dotnet/*bare-kit-dotnet*
+            prebuilds/dotnet/**/*bare-kit-dotnet*
           retention-days: 5
