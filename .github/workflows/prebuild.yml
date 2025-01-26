@@ -117,17 +117,20 @@ jobs:
         with:
           sparse-checkout: |
             prebuilds/Makefile
+            dotnet/BareKit
       - uses: actions/download-artifact@v4
         with:
           path: prebuilds
       - run: |
           make
         working-directory: prebuilds
+      - run: dotnet restore dotnet/src/BareKit
+      - run: dotnet pack -c Release dotnet/src/BareKit --output dotnet/out
       - uses: actions/upload-artifact@v4
         with:
           name: prebuilds
           path: |
             prebuilds/ios/BareKit.xcframework
             prebuilds/android/bare-kit
-            prebuilds/dotnet/**/*bare-kit-dotnet*
+            dotnet/out/*.nupkg
           retention-days: 5

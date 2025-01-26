@@ -6,16 +6,7 @@ namespace BareKit
     public static class Worklet
     {
         // Define the library name based on platform
-        private const string LibraryName =
-#if WINDOWS
-            "mylib.dll";
-#elif LINUX
-            "libmylib.so";
-#elif MACOS
-            "libmylib.dylib";
-#else
-            "mylib"; // Fallback
-#endif
+        private const string LibraryName = "bare-kit.dll";
 
         // Import functions from the native library
         [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl)]

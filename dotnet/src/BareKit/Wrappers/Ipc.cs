@@ -6,16 +6,7 @@ namespace BareKit
 {
     public static class Ipc
     {
-        // Define the library name based on platform
-#if WINDOWS
-        private const string LibraryName = "mylib.dll";
-#elif LINUX
-        private const string LibraryName = "libmylib.so";
-#elif MACOS
-        private const string LibraryName = "libmylib.dylib";
-#else
-        private const string LibraryName = "mylib"; // Fallback
-#endif
+        private const string LibraryName = "bare-kit";
 
         // Import functions from the native library
         [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl)]
