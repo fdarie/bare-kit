@@ -34,7 +34,7 @@ android/bare-kit: android/bare-kit-release.aar
 # .NET
 dotnet: dotnet/runtime/win-x64/native dotnet/runtime/osx-x64/native dotnet/runtime/linux-x64/native
 
-dotnet/runtime/windows-x64/native: dotnet-win-x64
+dotnet/runtime/win-x64/native: dotnet-win-x64
 	rm -rf $@
 	mkdir -p $@
 	cp -a $</* $@
