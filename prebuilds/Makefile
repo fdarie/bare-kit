@@ -34,14 +34,14 @@ android/bare-kit: android/bare-kit-release.aar
 # .NET
 dotnet: dotnet/runtime/win-x64/native dotnet/runtime/osx-x64/native dotnet/runtime/linux-x64/native
 
-dotnet/runtime/win-x64/native: dotnet-win-x64
+dotnet/runtime/win-x64/native: dotnet-windows-x64
 	rm -rf $@
 	mkdir -p $@
 	cp -a $</* $@
 	@echo "Copied .NET Windows files to $@:"
 	ls -all $@
 
-dotnet/runtime/osx-x64/native: dotnet-osx-x64
+dotnet/runtime/osx-x64/native: dotnet-darwin-x64
 	rm -rf $@
 	mkdir -p $@
 	cp -a $</* $@
