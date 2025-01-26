@@ -76,7 +76,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: dotnet-${{ matrix.platform }}-${{ matrix.arch }}
-          path: build/dotnet/*bare-kit-dotnet.*
+          path: build/dotnet/*bare-kit*
 
   android:
     strategy:
