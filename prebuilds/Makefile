@@ -32,23 +32,23 @@ android/bare-kit: android/bare-kit-release.aar
 	unzip -q $< -d $@
 
 # .NET
-dotnet: dotnet/runtime/windows-x64 dotnet/runtime/darwin-x64 dotnet/runtime/linux-x64
+dotnet: dotnet/runtime/win-x64/native dotnet/runtime/osx-x64/native dotnet/runtime/linux-x64/native
 
-dotnet/runtime/windows-x64: dotnet-windows-x64
+dotnet/runtime/windows-x64/native: dotnet-win-x64
 	rm -rf $@
 	mkdir -p $@
 	cp -a $</* $@
 	@echo "Copied .NET Windows files to $@:"
 	ls -all $@
 
-dotnet/runtime/darwin-x64: dotnet-darwin-x64
+dotnet/runtime/osx-x64/native: dotnet-osx-x64
 	rm -rf $@
 	mkdir -p $@
 	cp -a $</* $@
 	@echo "Copied .NET macOS files to $@:"
 	ls -all $@
 
-dotnet/runtime/linux-x64: dotnet-linux-x64
+dotnet/runtime/linux-x64/native: dotnet-linux-x64
 	rm -rf $@
 	mkdir -p $@
 	cp -a $</* $@
