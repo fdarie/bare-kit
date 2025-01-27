@@ -10,18 +10,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\prebuild\dotnet\runtime\win-x64\native\bare-kit.dll"
-          Condition="Exists('..\..\..\prebuild\dotnet\runtime\win-x64\native\bare-kit.dll')"
+    <None Include="..\..\prebuilds\dotnet\runtime\win-x64\native\bare-kit.dll"
+          Condition="Exists('..\..\prebuilds\dotnet\runtime\win-x64\native\bare-kit.dll')"
           Pack="true"
           PackagePath="runtimes/win-x64/native/bare-kit.dll" />
     
-    <None Include="..\..\..\prebuild\dotnet\runtime\linux-x64\native\libbare-kit.so"
-          Condition="Exists('..\..\..\prebuild\dotnet\runtime\linux-x64\native\libbare-kit.so')"
+    <None Include="..\..\prebuilds\dotnet\runtime\linux-x64\native\libbare-kit.so"
+          Condition="Exists('..\..\prebuilds\dotnet\runtime\linux-x64\native\libbare-kit.so')"
           Pack="true"
           PackagePath="runtimes/linux-x64/native/libbare-kit.so" />
           
-    <None Include="..\..\..\prebuild\dotnet\runtime\osx-x64\native\libbare-kit.dylib"
-          Condition="Exists('..\..\..\prebuild\dotnet\runtime\osx-x64\native\libbare-kit.dylib')"
+    <None Include="..\..\prebuilds\dotnet\runtime\osx-x64\native\libbare-kit.dylib"
+          Condition="Exists('..\..\prebuilds\dotnet\runtime\osx-x64\native\libbare-kit.dylib')"
           Pack="true"
           PackagePath="runtimes/osx-x64/native/libbare-kit.dylib" />
   </ItemGroup>
